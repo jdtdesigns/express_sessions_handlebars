@@ -30,7 +30,10 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      len: 6
+      len: {
+        args: 6,
+        msg: 'Your password must be at least 6 characters in length.'
+      }
     }
   }
 }, {

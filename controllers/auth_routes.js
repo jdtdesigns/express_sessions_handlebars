@@ -44,6 +44,7 @@ auth_router.post('/register', isLoggedIn, (req, res) => {
           res.redirect('/');
         });
       }).catch(err => {
+        console.log(err);
         // If any database validation error occurs, we can save them to the session
         // and redirect back to /register
         // This will then show the errors on the register.hbs view
@@ -82,7 +83,7 @@ auth_router.post('/login', isLoggedIn, (req, res) => {
     // Check that the password the user sent from the client-side matches the hashed
     // password stored in the users table
     // This is our custom method we attached to the User model
-    const pass_is_valid = await user.validatePass(password, user.password);
+    const pass_is_valid = await user.validatePassword(password, user.password);
     // If the passwords don't match, we attach an error and redirect them back to 
     // the login page
     if (!pass_is_valid) {
