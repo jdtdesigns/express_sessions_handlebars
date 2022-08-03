@@ -14,7 +14,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // attach .env to process object
 require('dotenv').config();
 // Pull in our view routes object from the index file
-const { view_routes } = require('./controllers');
+const { view_routes, auth_routes } = require('./controllers');
 
 // Create our express app object to set up our server
 const app = express();
@@ -31,6 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Add session middleware to the server - gives us access to req.session on our routes
 app.use(session({
+  // This secret string will be compared to the client-side cookie to "authenticate" a user
   secret: process.env.SESSION_SECRET,
   // Stores our session data to the database instead of using server system memory
   store: new SequelizeStore({ db }),
@@ -48,6 +49,8 @@ app.use(session({
 
 // Load our view routes at the root route - localhost:3333/
 app.use('/', view_routes);
+// Load our auth routes and prefix all those routes with /auth
+app.use('/auth', auth_routes);
 
 // Sync our database tables - {force: true} to drop all tables and re-sync
 db.sync().then(() => {
