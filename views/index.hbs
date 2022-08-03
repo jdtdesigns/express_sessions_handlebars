@@ -1,1 +1,14 @@
 <h1>Index</h1>
+
+<ul>
+  {{#each fruits}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+
+
+{{#if user}}
+  <p>{{user.email}}</p>
+  {{else}}
+  <p>No user attached.</p>
+{{/if}}
