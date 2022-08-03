@@ -5,6 +5,8 @@ require('dotenv').config();
 
 const app = express();
 
+console.log(process.env.PORT);
+
 app.use(express.static(path.join('front')));
 
 app.use(express.json());
