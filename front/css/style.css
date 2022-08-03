@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4%;
+  background: #555;
+}
+
+header * {
+  color: #fff;
+}
+
+header .logo {
+  text-decoration: none;
+}
+
+header nav span.email {
+  margin-right: 15px;
+}
+
+main {
+  padding: 35px 4%;
+}
+
+.errors {
+  margin-bottom: 15px;
+}
+
+.error {
+  text-align: center;
+  margin-bottom: 3px;
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 0 auto;
+}
+
+form * {
+  padding: 7px 10px;
+  margin-bottom: 7px;
+}
+
+form h3 {
+  text-align: center;
+}
