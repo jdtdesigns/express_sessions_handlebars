@@ -10,6 +10,7 @@ require('dotenv').config();
 // Pull in our view routes object from the index file
 const { view_routes } = require('./controllers');
 
+// Create our express app object to set up our server
 const app = express();
 
 // Share our front end files with the client-side(browser/insomnia/etc.)
