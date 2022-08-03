@@ -49,4 +49,13 @@ User.init({
   }
 });
 
+// Use the prototype object to allow all of our newly created user objects to
+// use the validatePassword method
+// We declare our function as "async" to allow the use of await on promises
+User.prototype.validatePassword = async function (password, stored_password) {
+  // return the resolved value of the compare() Promise object
+  // once it compares the hashed password to the value passed in by the user
+  return await bcrypt.compare(password, stored_password);
+}
+
 module.exports = User;
