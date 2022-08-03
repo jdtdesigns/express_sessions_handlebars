@@ -14,6 +14,7 @@ User.init({
     // We can use the validate object to set up numerous validation 
     // checks on our fields
     validate: {
+      // Checks if the value is at least 6 characters in length
       len: 2
     }
   },
