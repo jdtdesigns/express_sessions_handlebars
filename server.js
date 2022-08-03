@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 // Load our view routes at the root route - localhost:3333/
 app.use('/', view_routes);
 
-// Sync or database tables - {force: true} to drop all tables and re-sync
+// Sync our database tables - {force: true} to drop all tables and re-sync
 db.sync().then(() => {
   app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 });
