@@ -21,6 +21,7 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
+      // Check if value is a valid email email address
       isEmail: true
     }
   },
@@ -40,7 +41,8 @@ User.init({
   hooks: {
     // We use async/await to avoid having to use nested Promise .then()'s 
     async beforeCreate(user) {
-      // Await will stop the code below from running until the awaited value is "resolved"
+      // Await will stop any code below from running that relies on the awaited value
+      // until the awaited value is "resolved"
       // bcrypt.hash() will scramble and hash a string, using salts(levels of encryption)
       const hashed_pass = await bcrypt.hash(user.password, 10);
       // set our user object's password to the hashed version before it's saved to the database
