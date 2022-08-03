@@ -30,8 +30,11 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
+      // We can use an object to customize the error message
       len: {
+        // The actual value that we're checking against
         args: 6,
+        // The customized error message
         msg: 'Your password must be at least 6 characters in length.'
       }
     }
