@@ -16,7 +16,7 @@ auth_router.post('/register', isLoggedIn, (req, res) => {
     // If any of the fields are empty, we attach an errors array to the session object
     // check out 
     req.session.errors = ['Please check your credentials and try again.'];
-    // Push/Redirect the client back to the root route
+    // Push/Redirect the client back to the register route
     return res.redirect('/register');
   }
 
