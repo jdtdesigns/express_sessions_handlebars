@@ -6,7 +6,7 @@ const { isLoggedIn } = require('./helpers');
 // so the user will be redirected back to index if they are still logged in
 // We shouldn't allow them to visit an auth view route if they're logged in
 auth_router.post('/register', isLoggedIn, (req, res) => {
-  // Grab the properties we need from the 
+  // Grab the properties we need from the request body
   const { username, email, password } = req.body;
 
   // Check if any of the required fields are empty
