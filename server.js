@@ -13,7 +13,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // attach .env to process object
 require('dotenv').config();
-// Pull in our view routes object from the index file
+// Pull in our view routes and auth_route objects from the index file
 const { view_routes, auth_routes } = require('./controllers');
 
 // Create our express app object to set up our server
