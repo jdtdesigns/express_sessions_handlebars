@@ -34,6 +34,8 @@ app.use(session({
   // This secret string will be compared to the client-side cookie to "authenticate" a user
   secret: process.env.SESSION_SECRET,
   // Stores our session data to the database instead of using server system memory
+  // We pass our Sequelize connection object into the constructor, so it can connect with our database and sync
+  // This will create a Sessions table on your database for storing the session information
   store: new SequelizeStore({ db }),
   // If we don't affect/change the session data during a request, this option
   // will allow the the store to "forget" the session at the end of a request
